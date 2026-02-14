@@ -8,6 +8,7 @@ void outputArrayData(double array[]);
 double sumArray(double array[]);
 
 int main(){
+
     // Dynamically allocated double array
     double *ptr = nullptr;
     ptr = new double[SIZE];
@@ -23,16 +24,27 @@ int main(){
 }
 
 void enterArrayData(double array[]){
+
     //looping to get user input to populate array
     for (int i = 0; i < SIZE; i++){
         cout << "Element #" << i << ": ";
         cin >> array[i];
+
+        // error handling
+        while (cin.fail()){
+            cout << "Please enter a valid number." << endl;
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "Element #" << i << ": "; 
+            cin >> array[i];
+        }
     }
     
     cout << "Data entry complete." << endl;
 }
 
 void outputArrayData(double array[]){
+
     cout << "Outputting array elements: ";
     for (int i = 0; i < SIZE; i++){
         cout << array[i] << " ";
@@ -40,6 +52,7 @@ void outputArrayData(double array[]){
 }
 
 double sumArray(double array[]){
+
     double sum;
 
     for (int i = 0; i < SIZE; i++){
