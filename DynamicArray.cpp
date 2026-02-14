@@ -1,11 +1,11 @@
 #include <iostream>
 using namespace std;
 
-int SIZE = 5;
+const int SIZE = 5;
 
-void enterArrayData(double array[]);
-void outputArrayData(double array[]);
-double sumArray(double array[]);
+void enterArrayData(double *array);
+void outputArrayData(double *array);
+double sumArray(double *array);
 
 int main(){
 
@@ -23,7 +23,7 @@ int main(){
     return 0;
 }
 
-void enterArrayData(double array[]){
+void enterArrayData(double *array){
 
     //looping to get user input to populate array
     for (int i = 0; i < SIZE; i++){
@@ -43,7 +43,7 @@ void enterArrayData(double array[]){
     cout << "Data entry complete." << endl;
 }
 
-void outputArrayData(double array[]){
+void outputArrayData(double *array){
 
     cout << "Outputting array elements: ";
     for (int i = 0; i < SIZE; i++){
@@ -51,7 +51,7 @@ void outputArrayData(double array[]){
     }
 }
 
-double sumArray(double array[]){
+double sumArray(double *array){
 
     double sum;
 
