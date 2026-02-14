@@ -28,7 +28,7 @@ void enterArrayData(double array[]){
     //looping to get user input to populate array
     for (int i = 0; i < SIZE; i++){
         cout << "Element #" << i << ": ";
-        cin >> array[i];
+        cin >> *(array + i);
 
         // error handling
         while (cin.fail()){
@@ -36,7 +36,7 @@ void enterArrayData(double array[]){
             cin.clear();
             cin.ignore(10000, '\n');
             cout << "Element #" << i << ": "; 
-            cin >> array[i];
+            cin >> *(array + i);
         }
     }
     
@@ -47,7 +47,7 @@ void outputArrayData(double array[]){
 
     cout << "Outputting array elements: ";
     for (int i = 0; i < SIZE; i++){
-        cout << array[i] << " ";
+        cout << *(array + i) << " ";
     }
 }
 
@@ -56,7 +56,7 @@ double sumArray(double array[]){
     double sum;
 
     for (int i = 0; i < SIZE; i++){
-        sum += array[i];
+        sum += *(array + i);
     }
     return sum;
 }
