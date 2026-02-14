@@ -13,15 +13,37 @@ int main(){
     ptr = new double[SIZE];
 
     enterArrayData(ptr);
+    outputArrayData(ptr);
+    cout << "\nSum of values: " << sumArray(ptr);
+
+    //deleting dynamimcally allocated array
+    delete [] ptr; 
 
     return 0;
 }
 
 void enterArrayData(double array[]){
+    //looping to get user input to populate array
     for (int i = 0; i < SIZE; i++){
         cout << "Element #" << i << ": ";
         cin >> array[i];
     }
     
     cout << "Data entry complete." << endl;
+}
+
+void outputArrayData(double array[]){
+    cout << "Outputting array elements: ";
+    for (int i = 0; i < SIZE; i++){
+        cout << array[i] << " ";
+    }
+}
+
+double sumArray(double array[]){
+    double sum;
+
+    for (int i = 0; i < SIZE; i++){
+        sum += array[i];
+    }
+    return sum;
 }
